@@ -36,14 +36,14 @@ function marquee()
           lines[i]["line"]
         )
        
-        if ((lines[i]["pos"] + string.len(lines[i]["lovely"]["subscriber"])) < -4) then
+        if ((lines[i]["pos"] + string.len(lines[i]["lovely"]["subscriber"])) < -1) then
           monitor.clearLine()
           local valid = false
           while (valid ~= true) do
             valid = true
             local newLovely = {
               ["lovely"] = lovelies[math.random(#lovelies)],
-              ["pos"] = math.random(sizeX, sizeX + 20),
+              ["pos"] = sizeX,
               ["line"] = math.random(2, sizeY)            
             }
 
