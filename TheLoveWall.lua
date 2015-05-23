@@ -48,11 +48,15 @@ function marquee()
             }
 
             for j = 1, #lovelies do
-              if (newLovely["lovely"]["subscriber"] == lines[j]["lovely"]["subscriber"]) then
-                valid = false
-              end
-              if (newLovely["line"] == lines[j]["line"]) then
-                valid = false
+              if (j ~= i) then
+                if (newLovely["lovely"]["subscriber"] == lines[j]["lovely"]["subscriber"]) then
+                  print "Subscriber "..newLovely["lovely"]["subscriber].." is already on the screen"
+                  valid = false
+                end
+                if (newLovely["line"] == lines[j]["line"]) then
+                  print "There is already a subscriber on line "..newLovely["line"]
+                  valid = false
+                end
               end
             end
 
