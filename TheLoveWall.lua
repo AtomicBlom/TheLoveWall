@@ -22,7 +22,7 @@ function marquee()
  
     lines[i] = {
       ["lovely"] = lovely,
-      ["pos"] = math.random(sizeX, sizeX + 20),
+      ["pos"] = math.random(1, sizeX + 20),
       ["line"] = math.random(2, sizeY)
     }
    
@@ -38,11 +38,29 @@ function marquee()
        
         if ((lines[i]["pos"] + string.len(lines[i]["lovely"]["subscriber"])) < -4) then
           monitor.clearLine()
-          lines[i] = {
-            ["lovely"] = lovelies[math.random(#lovelies)],
-            ["pos"] = math.random(sizeX, sizeX + 20),
-            ["line"] = math.random(2, sizeY)            
-          }
+          local valid = false
+          while (valid ~= true) do
+            valid = true
+            local newLovely = {
+              ["lovely"] = lovelies[math.random(#lovelies)],
+              ["pos"] = math.random(sizeX, sizeX + 20),
+              ["line"] = math.random(2, sizeY)            
+            }
+
+            for j = 1, #lovelies do
+              if (newLovely["lovely"]["subscriber"] == lines[j]["lovely"]["subscriber"]) then
+                valid = false
+              end
+              if (newLovely["line"] == lines[j]["line"]) then
+                valid = false
+              end
+            end
+
+            if (valid) then
+              lines[i] = newLovely
+            end
+            
+          end
           print (lines[i]["lovely"]["subscriber"].." on line "..lines[i]["line"])
         end
        
