@@ -5,7 +5,7 @@ local colours = {
 lovelies = {}
 monitor = peripheral.wrap("top")
 concurrentLovelies = 5
-title = "The Love Wall"
+title = "~= The Love Wall =~"
  
 function marquee()
   monitor.setTextScale(2)
@@ -14,6 +14,7 @@ function marquee()
   sizeY = sizeY
   monitor.clear()
   monitor.setCursorPos(sizeX / 2 - string.len(title) / 2, 1)
+  monitor.setTextColor(colors.blue)
   monitor.write(title)
  
   local lines = {}
