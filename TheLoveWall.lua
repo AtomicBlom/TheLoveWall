@@ -47,7 +47,7 @@ function marquee()
               ["line"] = math.random(2, sizeY)            
             }
 
-            for j = 1, #lovelies do
+            for j = 1, concurrentLovelies do
               if (j ~= i) then
                 if (newLovely["lovely"]["subscriber"] == lines[j]["lovely"]["subscriber"]) then
                   print("Subscriber "..newLovely["lovely"]["subscriber"].." is already on the screen")
@@ -62,10 +62,10 @@ function marquee()
 
             if (valid) then
               lines[i] = newLovely
+              print (lines[i]["lovely"]["subscriber"].." on line "..lines[i]["line"])
+              break
             end
-            
           end
-          print (lines[i]["lovely"]["subscriber"].." on line "..lines[i]["line"])
         end
        
         monitor.clearLine()
