@@ -13,7 +13,7 @@ function marquee()
   sizeX = sizeX
   sizeY = sizeY
   monitor.clear()
-  monitor.setCursorPos(1, sizeY / 2 - string.len(title) / 2)
+  monitor.setCursorPos(sizeX / 2 - string.len(title) / 2, 1)
   monitor.write(title)
  
   local lines = {}
