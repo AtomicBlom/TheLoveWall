@@ -37,7 +37,7 @@ function marquee()
           lines[i]["line"]
         )
        
-        if ((lines[i]["pos"] + string.len(lines[i]["lovely"]["subscriber"])) < -1) then
+        if ((lines[i]["pos"] + string.len(lines[i]["lovely"]["subscriber"])) < -4) then
           monitor.clearLine()
           local valid = false
           while (valid ~= true) do
