@@ -63,6 +63,10 @@ function marquee()
 
             if (valid) then
               lines[i] = newLovely
+              monitor.setCursorPos(
+                lines[i]["pos"],
+                lines[i]["line"]
+              )
               print (lines[i]["lovely"]["subscriber"].." on line "..lines[i]["line"])
               break
             end
