@@ -23,15 +23,14 @@ function marquee()
     lines[i] = {
       ["lovely"] = lovely,
       ["pos"] = math.random(1, sizeX + 20),
-      ["line"] = math.random(2, sizeY),
-      ["speed"] = 0.5 + math.random()
+      ["line"] = math.random(2, sizeY)
     }
    
     print (lines[i]["lovely"]["subscriber"].." on line "..lines[i]["line"])
   end    
     while(true) do
       for i = 1, concurrentLovelies do
-        lines[i]["pos"] = lines[i]["pos"] - lines[i]["speed"]
+        lines[i]["pos"] = lines[i]["pos"] - 1
         monitor.setCursorPos(
           lines[i]["pos"],
           lines[i]["line"]
@@ -45,8 +44,7 @@ function marquee()
             local newLovely = {
               ["lovely"] = lovelies[math.random(#lovelies)],
               ["pos"] = sizeX,
-              ["line"] = math.random(2, sizeY),
-              ["speed"] = 0.5 + math.random()
+              ["line"] = math.random(2, sizeY)
             }
 
             for j = 1, concurrentLovelies do
